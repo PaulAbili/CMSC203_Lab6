@@ -1,0 +1,23 @@
+
+public class SavingsAccount extends BankAccount{
+	private double rate = 2.5;
+	private int savingsNumber = 0;
+	private String accountNumber;
+	public SavingsAccount(String n, int b) {
+		super(n,b);
+		accountNumber = getAccountNumber() + "-" + savingsNumber;
+	}
+	public SavingsAccount(SavingsAccount other, int b){
+		super(other,b);
+		savingsNumber = other.savingsNumber++;
+		accountNumber = getAccountNumber() + "-" + savingsNumber;
+	}
+	public void postInterest(){
+		double a = (getBalance() * (rate / 12))/100;
+		deposit(a);
+	}
+	public String getAccountNumber() {
+		return super.getAccountNumber();
+	}
+	
+}
