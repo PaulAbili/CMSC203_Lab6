@@ -1,0 +1,17 @@
+
+public class CheckingAccount extends BankAccount{
+	
+private static final double FEE = .15;
+
+public CheckingAccount(String n, double amount) {
+	super(n, amount);
+	String newAccountValue = getAccountNumber() + "-10";
+	setAccountNumber(newAccountValue);
+}
+
+public boolean withdraw(double amount) {
+	amount += FEE;
+	 return super.withdraw(amount);
+}
+
+}
